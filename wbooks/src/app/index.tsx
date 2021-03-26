@@ -8,8 +8,11 @@
  *
  * @format
  */
+if (__DEV__) {
+  import('@config/reactotronConfig');
+}
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar } from 'react-native';
 import {
   Header,
@@ -20,6 +23,11 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App = () => {
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.tron.log('Reactotron Configured');
+  }, []);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
