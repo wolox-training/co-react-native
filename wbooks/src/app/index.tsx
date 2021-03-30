@@ -7,20 +7,11 @@
  *
  * @format
  */
-if (__DEV__) {
-  import('@config/reactotronConfig');
-}
-
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from '@components/AppNavigator';
 
 const App = () => {
-  useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.tron.log('Reactotron Configured');
-  }, []);
-
   return (
     <NavigationContainer>
       <AppNavigator />
