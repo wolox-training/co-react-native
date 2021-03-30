@@ -12,7 +12,8 @@ if (__DEV__) {
 }
 
 import React, { useEffect } from 'react';
-import Library from '@screens/Library';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigator from '@components/AppNavigator';
 
 const App = () => {
   useEffect(() => {
@@ -20,7 +21,11 @@ const App = () => {
     console.tron.log('Reactotron Configured');
   }, []);
 
-  return <Library />;
+  return (
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
+  );
 };
 
 export default App;
