@@ -8,9 +8,10 @@ import { trimLineBreak } from '@utils/stringUtils';
 import styles from './styles';
 
 function Library() {
-  const renderBooks: ListRenderItem<Book> = ({ item }) => (
-    <ItemBook image={item.imageUrl} title={trimLineBreak(item.title)} author={item.author} />
-  );
+  const renderBooks: ListRenderItem<Book> = ({ item }) => {
+    const { imageUrl, title, author } = item;
+    return <ItemBook image={imageUrl} title={trimLineBreak(title)} author={author} />;
+  };
   const keyExtractor = ({ id }: Book) => String(id);
 
   return (
