@@ -16,16 +16,10 @@ interface Props {
 }
 
 function Library({ navigation }: Props) {
+  const handleClick = () => navigation.navigate(SCREENS.BOOK_DETAIL);
   const renderBooks: ListRenderItem<Book> = ({ item }) => {
     const { imageUrl, title, author } = item;
-    return (
-      <ItemBook
-        image={imageUrl}
-        onPress={() => navigation.navigate(SCREENS.BOOK_DETAIL)}
-        title={trimLineBreak(title)}
-        author={author}
-      />
-    );
+    return <ItemBook image={imageUrl} onPress={handleClick} title={trimLineBreak(title)} author={author} />;
   };
   const keyExtractor = ({ id }: Book) => String(id);
 

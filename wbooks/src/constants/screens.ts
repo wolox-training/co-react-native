@@ -1,13 +1,11 @@
-import { Screens } from '@interfaces/screens';
+enum SCREENS {
+  BOOK_DETAIL = 'BookDetail',
+  LIBRARY = 'Library'
+}
 
-const SCREENS: Screens = {
-  BOOK_DETAIL: 'BookDetail',
-  LIBRARY: 'Library'
-};
-
-export const SCREEN_TITLES = {
-  BOOK_DETAIL: 'Book Detail',
-  LIBRARY: 'Library'
-};
+export enum SCREEN_TITLES {
+  BOOK_DETAIL = 'Book Detail',
+  LIBRARY = 'Library'
+}
 
 export default SCREENS;
