@@ -1,11 +1,11 @@
-enum SCREENS {
+enum Screens {
   BOOK_DETAIL = 'BookDetail',
   LIBRARY = 'Library'
 }
 
-export enum SCREEN_TITLES {
+export enum ScreenTitles {
   BOOK_DETAIL = 'Book Detail',
   LIBRARY = 'Library'
 }
 
-export default SCREENS;
+export default Screens;

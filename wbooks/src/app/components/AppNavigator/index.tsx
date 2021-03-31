@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import SCREENS, { SCREEN_TITLES } from '@constants/screens';
+import Screens, { ScreenTitles } from '@constants/screens';
 import { LibraryStackParamList } from '@interfaces/navigatorParamList';
 import BookDetail from '@screens/BookDetail';
 import Library from '@screens/Library';
@@ -11,14 +11,14 @@ function AppNavigator() {
   return (
     <LibraryStackNavigator.Navigator>
       <LibraryStackNavigator.Screen
-        name={SCREENS.LIBRARY}
+        name={Screens.LIBRARY}
         component={Library}
-        options={{ title: SCREEN_TITLES.LIBRARY }}
+        options={{ title: ScreenTitles.LIBRARY }}
       />
       <LibraryStackNavigator.Screen
-        name={SCREENS.BOOK_DETAIL}
+        name={Screens.BOOK_DETAIL}
         component={BookDetail}
-        options={{ title: SCREEN_TITLES.BOOK_DETAIL }}
+        options={{ title: ScreenTitles.BOOK_DETAIL }}
       />
     </LibraryStackNavigator.Navigator>
   );
