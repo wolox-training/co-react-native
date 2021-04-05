@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, TouchableOpacity } from 'react-native';
+import { Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Screens, { ScreenTitles } from '@constants/screens';
 import { LibraryStackParamList } from '@interfaces/navigatorParamList';
@@ -9,6 +9,7 @@ import IconNotifications from '@assets/images/ic_notifications.png';
 import IconSearch from '@assets/images/ic_search.png';
 import IconBack from '@assets/images/ic_back.png';
 
+import ButtonHeader from './buttonHeader';
 import customHeader from './customHeader';
 import styles from './styles';
 
@@ -16,22 +17,14 @@ const LibraryStackNavigator = createStackNavigator<LibraryStackParamList>();
 
 function AppNavigator() {
   return (
-    <LibraryStackNavigator.Navigator screenOptions={customHeader as object}>
+    <LibraryStackNavigator.Navigator screenOptions={customHeader}>
       <LibraryStackNavigator.Screen
         name={Screens.LIBRARY}
         component={Library}
         options={{
           title: ScreenTitles.LIBRARY,
-          headerLeft: () => (
-            <TouchableOpacity style={styles.headerButtons}>
-              <Image source={IconNotifications} />
-            </TouchableOpacity>
-          ),
-          headerRight: () => (
-            <TouchableOpacity style={styles.headerButtons}>
-              <Image source={IconSearch} />
-            </TouchableOpacity>
-          )
+          headerLeft: () => <ButtonHeader image={IconNotifications} />,
+          headerRight: () => <ButtonHeader image={IconSearch} />
         }}
       />
       <LibraryStackNavigator.Screen

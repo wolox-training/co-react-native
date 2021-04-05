@@ -10,6 +10,6 @@ const customHeader = {
   headerTintColor: WHITE,
   headerBackground: () => <Image style={styles.headerImage} resizeMode="stretch" source={headerBackground} />,
   headerTitleStyle: styles.headerTitleStyle
-};
+} as object;
 
 export default customHeader;
