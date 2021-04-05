@@ -7,3 +7,24 @@ export interface Book {
   year: string;
   imageUrl: string | null;
 }
+
+export interface BookState {
+  booksLoading: boolean;
+  books: Book[];
+}
+
+export interface BooksResponse {
+  ok: boolean;
+  data: Book[];
+}
+
+export enum BookTypes {
+  BOOK_LIST_REQUEST = 'BOOK_LIST_REQUEST',
+  BOOK_LIST_REQUEST_SUCCESS = 'BOOK_LIST_REQUEST_SUCCESS',
+  BOOK_LIST_REQUEST_FAILURE = 'BOOK_LIST_REQUEST_FAILURE'
+}
+
+export type BookActions =
+  | { type: BookTypes.BOOK_LIST_REQUEST }
+  | { type: BookTypes.BOOK_LIST_REQUEST_SUCCESS; payload: Book[] }
+  | { type: BookTypes.BOOK_LIST_REQUEST_FAILURE; payload: string };
