@@ -9,7 +9,7 @@ export interface Book {
 }
 
 export interface BookState {
-  isLoading: boolean;
+  booksLoading: boolean;
   books: Book[];
 }
 

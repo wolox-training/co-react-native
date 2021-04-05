@@ -1,7 +1,7 @@
 import { BookActions, BookState, BookTypes } from '@interfaces/book';
 
 const initialState: BookState = {
-  isLoading: false,
+  booksLoading: false,
   books: []
 };
 
@@ -10,20 +10,20 @@ function bookReducer(state: BookState = initialState, action: BookActions): Book
     case BookTypes.BOOK_LIST_REQUEST:
       return {
         ...state,
-        isLoading: true
+        booksLoading: true
       };
 
     case BookTypes.BOOK_LIST_REQUEST_SUCCESS:
       return {
         ...state,
         books: action.payload,
-        isLoading: false
+        booksLoading: false
       };
 
     case BookTypes.BOOK_LIST_REQUEST_FAILURE:
       return {
         ...state,
-        isLoading: false
+        booksLoading: false
       };
 
     default:
