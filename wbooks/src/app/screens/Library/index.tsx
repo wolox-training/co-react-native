@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, FlatList, ListRenderItem } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { LibraryStackParamList } from '@interfaces/navigatorParamList';
 import Screens from '@constants/screens';
 import ItemBook from '@components/ItemBook';
 import { Book } from '@interfaces/book';
-import { BOOKS_MOCK } from '@constants/mockBooks';
+import { AppState } from '@interfaces/appState';
 import { trimLineBreak } from '@utils/stringUtils';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionCreator } from '@redux/book/actions';
 
 import styles from './styles';
 
@@ -15,6 +17,14 @@ interface Props {
 }
 
 function Library({ navigation }: Props) {
+  const dispatch = useDispatch();
+
+  const books = useSelector<AppState, Book[]>((state: AppState) => state.books);
+
+  useEffect(() => {
+    dispatch(actionCreator.getBooks());
+  }, [dispatch]);
+
   const handleTouch = () => navigation.navigate(Screens.BOOK_DETAIL);
   const renderBooks: ListRenderItem<Book> = ({ item }) => {
     const { imageUrl, title, author } = item;
@@ -24,7 +34,7 @@ function Library({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList data={BOOKS_MOCK} renderItem={renderBooks} keyExtractor={keyExtractor} />
+      <FlatList data={books} renderItem={renderBooks} keyExtractor={keyExtractor} />
     </SafeAreaView>
   );
 }

@@ -7,6 +7,10 @@
  *
  * @format
  */
+if (__DEV__) {
+  import('@config/reactotronConfig');
+}
+
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from '@components/AppNavigator';
