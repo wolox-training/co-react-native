@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { SafeAreaView, FlatList, ListRenderItem } from 'react-native';
+import { SafeAreaView, FlatList, ListRenderItem, Text } from 'react-native';
+import Config from 'react-native-config';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { LibraryStackParamList } from '@interfaces/navigatorParamList';
 import Screens from '@constants/screens';
@@ -34,7 +35,12 @@ function Library({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList data={books} renderItem={renderBooks} keyExtractor={keyExtractor} />
+      <FlatList
+        ListHeaderComponent={<Text>{Config.SECRET_VARIABLE}</Text>}
+        data={books}
+        renderItem={renderBooks}
+        keyExtractor={keyExtractor}
+      />
     </SafeAreaView>
   );
 }
