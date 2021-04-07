@@ -1,24 +1,16 @@
-import { Dispatch } from 'redux';
-import { BookTypes } from '@interfaces/book';
+import { completeTypes, createTypes } from 'redux-recompose';
 import { getBookList } from '@services/BookService';
-import Reactotron from '@config/reactotronConfig';
+
+const TARGETS = {
+  BOOKS: 'books'
+};
+
+export const actions = createTypes(completeTypes({ primaryActions: ['LIST_BOOKS'] }), '@@BOOKS');
 
 export const actionCreator = {
-  getBooks: () => async (dispatch: Dispatch) => {
-    dispatch({ type: BookTypes.BOOK_LIST_REQUEST });
-    const response = await getBookList();
-    if (__DEV__) {
-      Reactotron.apisauce(response);
-    }
-    if (response.ok) {
-      dispatch({
-        type: BookTypes.BOOK_LIST_REQUEST_SUCCESS,
-        payload: response.data
-      });
-    } else {
-      dispatch({
-        type: BookTypes.BOOK_LIST_REQUEST_FAILURE
-      });
-    }
-  }
+  getBooks: () => ({
+    type: actions.LIST_BOOKS,
+    target: TARGETS.BOOKS,
+    service: getBookList
+  })
 };
