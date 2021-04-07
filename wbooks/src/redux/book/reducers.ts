@@ -1,13 +1,11 @@
 import { completeReducer, completeState, createReducer } from 'redux-recompose';
+import Immutable from 'seamless-immutable';
 import { BookState } from '@interfaces/book';
 
 import { actions } from './actions';
 
 export const initialState: BookState = completeState({
-  description: {
-    booksLoading: false,
-    books: []
-  }
+  books: []
 });
 
 const reducerDescription = {
@@ -16,4 +14,4 @@ const reducerDescription = {
 
 const completedReducer = completeReducer(reducerDescription);
 
-export default createReducer(initialState, completedReducer);
+export default createReducer(Immutable(initialState), completedReducer);
