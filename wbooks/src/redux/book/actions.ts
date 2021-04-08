@@ -2,15 +2,28 @@ import { completeTypes, createTypes } from 'redux-recompose';
 import { getBookList } from '@services/BookService';
 
 const TARGETS = {
-  BOOKS: 'books'
+  BOOKS: 'books',
+  SEARCH: 'searchBooks'
 };
 
-export const actions = createTypes(completeTypes({ primaryActions: ['LIST_BOOKS'] }), '@@BOOKS');
+const completedActions = completeTypes({
+  primaryActions: ['LIST_BOOKS'],
+  ignoredActions: ['SEARCH_BOOKS']
+});
 
-export const actionCreator = {
+export const actions = createTypes(completedActions, '@@BOOKS');
+
+const actionCreator = {
   getBooks: () => ({
     type: actions.LIST_BOOKS,
     target: TARGETS.BOOKS,
     service: getBookList
+  }),
+  searchBooks: (search: string) => ({
+    type: actions.SEARCH_BOOKS,
+    target: TARGETS.SEARCH,
+    payload: search
   })
 };
+
+export default actionCreator;

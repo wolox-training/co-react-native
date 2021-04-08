@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Image, ImageSourcePropType, TouchableOpacity } from 'react-native';
 
@@ -5,12 +6,20 @@ import styles from './styles';
 
 interface Props {
   image: ImageSourcePropType;
-  handleTouch?: () => void;
+  routeName?: string | null;
 }
 
-function ButtonHeader({ image, handleTouch }: Props) {
+function ButtonHeader({ image, routeName }: Props) {
+  const navigation = useNavigation();
+
+  function handleNavigation() {
+    if (routeName) {
+      navigation.navigate(routeName);
+    }
+  }
+
   return (
-    <TouchableOpacity onPress={handleTouch} style={styles.headerButtons}>
+    <TouchableOpacity onPress={handleNavigation} style={styles.headerButtons}>
       <Image source={image} />
     </TouchableOpacity>
   );
