@@ -11,6 +11,7 @@ export interface Book {
 export interface BookState {
   booksLoading: boolean;
   books: Book[];
+  searchBooks: string;
 }
 
 export interface BooksResponse {

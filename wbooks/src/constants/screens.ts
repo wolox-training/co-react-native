@@ -1,11 +1,13 @@
 enum Screens {
   BOOK_DETAIL = 'BookDetail',
-  LIBRARY = 'Library'
+  LIBRARY = 'Library',
+  SEARCH = 'Search'
 }
 
 export enum ScreenTitles {
   BOOK_DETAIL = 'Book Detail',
-  LIBRARY = 'Library'
+  LIBRARY = 'Library',
+  SEARCH = 'Search Book'
 }
 
 export default Screens;

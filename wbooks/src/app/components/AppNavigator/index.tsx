@@ -5,6 +5,8 @@ import Screens, { ScreenTitles } from '@constants/screens';
 import { LibraryStackParamList } from '@interfaces/navigatorParamList';
 import BookDetail from '@screens/BookDetail';
 import Library from '@screens/Library';
+import Search from '@screens/Search';
+import SearchHeader from '@components/SearchHeader';
 import IconNotifications from '@assets/images/ic_notifications.png';
 import IconSearch from '@assets/images/ic_search.png';
 import IconBack from '@assets/images/ic_back.png';
@@ -24,7 +26,7 @@ function AppNavigator() {
         options={{
           title: ScreenTitles.LIBRARY,
           headerLeft: () => <ButtonHeader image={IconNotifications} />,
-          headerRight: () => <ButtonHeader image={IconSearch} />
+          headerRight: () => <ButtonHeader screenNavigate={Screens.SEARCH} image={IconSearch} />
         }}
       />
       <LibraryStackNavigator.Screen
@@ -34,6 +36,14 @@ function AppNavigator() {
           title: ScreenTitles.BOOK_DETAIL,
           headerBackTitleVisible: false,
           headerBackImage: () => <Image source={IconBack} style={styles.headerButtons} />
+        }}
+      />
+      <LibraryStackNavigator.Screen
+        name={Screens.SEARCH}
+        component={Search}
+        options={{
+          headerLeft: () => null,
+          headerTitle: () => <SearchHeader />
         }}
       />
     </LibraryStackNavigator.Navigator>

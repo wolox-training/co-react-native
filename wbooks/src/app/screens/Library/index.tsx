@@ -9,7 +9,7 @@ import { Book } from '@interfaces/book';
 import { AppState } from '@interfaces/appState';
 import { trimLineBreak } from '@utils/stringUtils';
 import { useDispatch, useSelector } from 'react-redux';
-import { actionCreator } from '@redux/book/actions';
+import actionCreator from '@redux/book/actions';
 
 import styles from './styles';
 
