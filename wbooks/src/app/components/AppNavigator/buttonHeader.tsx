@@ -6,18 +6,20 @@ import styles from './styles';
 
 interface Props {
   image: ImageSourcePropType;
-  routeName?: string;
+  routeName?: string | null;
 }
 
 function ButtonHeader({ image, routeName }: Props) {
   const navigation = useNavigation();
 
-  const handleNavigation = (screen: string) => {
-    navigation.navigate(screen);
-  };
+  function handleNavigation() {
+    if (routeName) {
+      navigation.navigate(routeName);
+    }
+  }
 
   return (
-    <TouchableOpacity onPress={() => routeName && handleNavigation(routeName)} style={styles.headerButtons}>
+    <TouchableOpacity onPress={handleNavigation} style={styles.headerButtons}>
       <Image source={image} />
     </TouchableOpacity>
   );
