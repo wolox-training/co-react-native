@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 import { POLAR, TUNDORA } from '@constants/colors';
 
+const ICON_SIZE = 65;
+const FONT_SIZE = 15;
+
 export default StyleSheet.create({
   container: {
     alignItems: 'center',
@@ -9,16 +12,16 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   searchIcon: {
-    height: 65,
+    height: ICON_SIZE,
     marginBottom: 30,
-    width: 65
+    width: ICON_SIZE
   },
   title: {
-    fontSize: 15,
+    fontSize: FONT_SIZE,
     marginBottom: 12
   },
   subtitle: {
     color: TUNDORA,
-    fontSize: 15
+    fontSize: FONT_SIZE
   }
 });

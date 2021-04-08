@@ -26,7 +26,7 @@ function AppNavigator() {
         options={{
           title: ScreenTitles.LIBRARY,
           headerLeft: () => <ButtonHeader image={IconNotifications} />,
-          headerRight: () => <ButtonHeader screenNavigate={Screens.SEARCH} image={IconSearch} />
+          headerRight: () => <ButtonHeader routeName={Screens.SEARCH} image={IconSearch} />
         }}
       />
       <LibraryStackNavigator.Screen

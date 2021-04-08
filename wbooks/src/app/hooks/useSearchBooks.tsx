@@ -4,7 +4,7 @@ import { Book, BookState } from '@interfaces/book';
 import { AppState } from '@interfaces/appState';
 import actionCreators from '@redux/book/actions';
 
-function SearchBooks() {
+function useSearchBooks() {
   const dispatch = useDispatch();
   const { books, searchBooks } = useSelector<AppState, BookState>(state => state);
 
@@ -19,4 +19,4 @@ function SearchBooks() {
   return { searchBooks, filteredBooks };
 }
 
-export default SearchBooks;
+export default useSearchBooks;
