@@ -1,5 +1,5 @@
-const BLANK_SPACE = ' ';
-const EMPTY_STRING = '';
+export const BLANK_SPACE = ' ';
+export const EMPTY_STRING = '';
 
 export const getInitials = (str?: string) =>
   str
@@ -10,4 +10,4 @@ export const getInitials = (str?: string) =>
 export const keepNumbers = (str?: string | number) =>
   (str || EMPTY_STRING).toString().replace(/\D/g, EMPTY_STRING);
 
-export const trimLineBreak = (str: string) => str.replace(/\n/g, EMPTY_STRING);
+export const trimLineBreak = (str?: string) => (str || EMPTY_STRING).replace(/\n/g, EMPTY_STRING);
