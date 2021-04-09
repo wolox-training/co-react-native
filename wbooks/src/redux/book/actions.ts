@@ -1,7 +1,7 @@
 import { completeTypes, createTypes } from 'redux-recompose';
 import { getBookList } from '@services/BookService';
 
-const TARGETS = {
+export const TARGETS = {
   BOOKS: 'books',
   SEARCH: 'searchBooks'
 };
