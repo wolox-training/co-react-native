@@ -1,5 +1,5 @@
 import { BOOKS_MOCK } from '@constants/mockBooks';
-import { BookServiceMockedResponse } from '@interfaces/booksServiceMock';
+import { BookServiceMockedResponse } from '@redux/book/actions.test';
 
 export function getBookList() {
   return new Promise<BookServiceMockedResponse>((resolve, reject) => {

@@ -1,9 +1,16 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { fetchMiddleware } from 'redux-recompose';
+import { Book } from '@interfaces/book';
 
 import actionCreators, { actions, TARGETS } from './actions';
 import { initialState } from './reducers';
+
+export interface BookServiceMockedResponse {
+  data?: Book[];
+  ok: boolean;
+  error?: string;
+}
 
 const middlewares = [thunk, fetchMiddleware];
 const mockStore = configureStore(middlewares);
