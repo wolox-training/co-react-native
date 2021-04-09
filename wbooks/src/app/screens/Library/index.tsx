@@ -31,8 +31,10 @@ function Library({ navigation }: Props) {
 
   const handleTouch = () => navigation.navigate(Screens.BOOK_DETAIL);
   const renderBooks: ListRenderItem<Book> = ({ item }) => {
-    const { imageUrl, title, author } = item;
-    return <ItemBook image={imageUrl} onPress={handleTouch} title={trimLineBreak(title)} author={author} />;
+    const { id, imageUrl, title, author } = item;
+    return (
+      <ItemBook id={id} image={imageUrl} onPress={handleTouch} title={trimLineBreak(title)} author={author} />
+    );
   };
   const keyExtractor = ({ id }: Book) => String(id);
 
