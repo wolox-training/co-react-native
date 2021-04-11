@@ -25,6 +25,7 @@ const onPress = jest.fn();
 const renderItemBook = (
   <Provider store={store}>
     <ItemBook
+      id={mockedBook.id}
       image={mockedBook.imageUrl}
       title={mockedBook.title}
       author={mockedBook.author}
